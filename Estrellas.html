@@ -4,48 +4,20 @@
 <br />
 <script>
     
-    function saltarLinea() {
-        
-        document.write("<br>");
-        document.write("<br>");
-        document.write("<br>");
-        
-    }
-    
-    function imprimir(frase) {
-        
+    function saltarLinea() {        
+        document.write("<br>");        
+    }    
+    function imprimir(frase) {        
         document.write(frase);
+        saltarLinea();        
+    }    
+    for (var lineas = 1; lineas <= 3; lineas++) {
+        for (var columnas = 1; columnas <= 10; columnas++) {
+        document.write("*");        
+        }
         saltarLinea();
-        
+        saltarLinea();
     }
-    
-    var intentos = 3;
-    var contador = 1;
-    var numeroPensado = Math.round(Math.random()*10);    
-    
-    while(contador <= intentos) {  
-        
-        var numeroLanzado = parseInt(prompt("ingresa un numero entre el 1 y el 10"));
-        
-        if (numeroPensado == numeroLanzado) {
-        alert ("Haz adivinado el numero, en el intento: " + contador + " el numero pensado era: " + numeroPensado);  
-        break;     
-        }
-        else {
-        alert ("Prueba nuevamente");
-        }        
-        contador++;
-    }
-    
-    if (numeroPensado == numeroLanzado) {
-            alert("Haz adivinado el numero, en el intento: " + contador + " el numero pensado era: " + numeroPensado);
-            
-        }
-        else {
-            alert("fallaste, el numero pensado era: " + numeroPensado);
-        }        
-    
-    alert("ya usaste todos tus intentos.");
     imprimir("fin");
     
 </script>
