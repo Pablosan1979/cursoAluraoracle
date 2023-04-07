@@ -1,11 +1,16 @@
 {
     "editor.linkedEditing": true,
     "cSpell.words": [
+        "alura",
         "Alura",
         "Arelis",
         "Digita",
         "FIFA",
         "pablosan",
         "Paola"
+    ],
+    "cSpell.ignoreWords": [
+        "Sesion",
+        "contrasenha"
     ]
 }
