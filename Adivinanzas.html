@@ -1,0 +1,33 @@
+<meta charset="UTF-8" />
+<h1>Programa Adivinar el numero</h1>
+<br />
+<br />
+<script>
+    
+    function saltarLinea() {
+
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+
+    }
+
+    function imprimir(frase) {
+
+        document.write(frase);
+        saltarLinea();
+
+    }
+
+    var numeroPensado = Math.round(Math.random()*10);
+    var numeroLanzado = parseInt(prompt ("ingresa un numero entre el 1 y el 10"));
+
+    if (numeroPensado == numeroLanzado) {
+        imprimir ("Haz adivinado el numero");       
+    }
+    else {
+        imprimir ("Prueba nuevamente, el numero era: " + numeroPensado);
+    }
+
+
+</script>
