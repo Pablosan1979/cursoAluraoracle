@@ -28,14 +28,24 @@
         var numeroLanzado = parseInt(prompt("ingresa un numero entre el 1 y el 10"));
         
         if (numeroPensado == numeroLanzado) {
-        alert ("Haz adivinado el numero");       
+        alert ("Haz adivinado el numero, en el intento: " + intentos + " el numero pensado era: " + numeroPensado);  
+        break;     
         }
         else {
-        alert ("Prueba nuevamente, el numero era: " + numeroPensado);
+        alert ("Prueba nuevamente");
         }        
         contador++;
     }
     
-    alert("ya usaste todos tus intentos.")
+    if (numeroPensado == numeroLanzado) {
+            alert("Haz adivinado el numero, en el intento: " + intentos + " el numero pensado era: " + numeroPensado);
+            
+        }
+        else {
+            alert("fallaste, el numero pensado era: " + numeroPensado);
+        }        
+    
+    alert("ya usaste todos tus intentos.");
+    imprimir("fin");
     
 </script>
