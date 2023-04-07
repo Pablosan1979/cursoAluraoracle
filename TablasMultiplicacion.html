@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<h1> Calcular Tablas de Multiplicar </h1>
+<script>
+    function saltarLinea() {
+        document.write("<br><br>");
+    }
+
+    function imprimir(frase) {
+        document.write(frase);
+        saltarLinea();
+    }
+
+    var numeroMultiplicar = parseInt(prompt ("Digita el numero de la tabla de multiplicar deseada: "))
+    var multiplicador = 1;
+    imprimir("rutina While")
+    while(multiplicador <= 10){
+
+        imprimir(+numeroMultiplicar+ " X " + multiplicador+ " = " +numeroMultiplicar * multiplicador);
+        multiplicador++;
+
+    }
+    imprimir("Rutina For")
+
+    for (var multiplicador=1; multiplicador<=10; multiplicador++){
+        imprimir(+numeroMultiplicar + " X " + multiplicador + " = " + numeroMultiplicar * multiplicador);
+
+    }
+    imprimir("end")
+</script>
