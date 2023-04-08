@@ -1,0 +1,78 @@
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background: url(https://cdn.pixabay.com/photo/2020/11/23/20/41/tree-5770902_1280.jpg) no-repeat;
+        display: grid;
+        place-content: center;
+    }
+
+    canvas {
+        border-radius: 1rem;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        border: 1px dotted #0000003d;
+        box-shadow: 0 1px 50px #00000073;
+    }
+</style>
+
+<body>
+    <canvas width="500" height="500" id="board"></canvas>
+</body>
+<script>
+    const board = document.getElementById("board");
+    const pen = board.getContext("2d");
+    //intentos
+    let attemps = 5;
+    // Dibujamos un circulo
+    function drawCircle(x, y, ratio, color) {
+        pen.fillStyle = color;
+        pen.beginPath();
+        pen.arc(x, y, ratio, 0, 2 * Math.PI);
+        pen.fill();
+    }
+    //creamos el objetivo
+    function objetive(x, y) {
+        drawCircle(x, y, 30, "red");
+        drawCircle(x, y, 20, "white");
+        drawCircle(x, y, 10, "red");
+    }
+    //pintamos el primer onjetivo
+    let x = Math.floor(Math.random() * (470 - 30) + 30);
+    let y = Math.floor(Math.random() * (470 - 30) + 30);
+    objetive(x, y);
+    function updateBoard() {
+        let xMax = 400;
+        let yMax = 400;
+        x = Math.floor(Math.random() * (470 - 30) + 30);
+        y = Math.floor(Math.random() * (470 - 30) + 30);
+        clearCircle();
+        objetive(x, y);
+    }
+    //borrar circulo anterior
+    function clearCircle() {
+        pen.clearRect(0, 0, 500, 500);
+    }
+    //disparamos (click en el blanco)
+    function shoot(e) {
+        attemps -= 1;
+        let xHere = e.offsetX;
+        let yHere = e.offsetY;
+        if (attemps === 0) {
+            window.confirm("You Lost, Try Again");
+            attemps = 5;
+        } else {
+            if (Math.abs(x - xHere) <= 10 && Math.abs(y - yHere) <= 10) { // aqui hay un rango entre el click y el centro de el objetivo
+                window.confirm("You Win!, Play Again");
+                attemps = 5;
+            }
+        }
+    }
+    setInterval(updateBoard, 1000);
+    board.onclick = shoot;
+</script>
