@@ -8,10 +8,23 @@
     pincel.fillRect(0,0,600, 400);
 
     function exhibirAlerta(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
         console.log(evento);
-        alert ("usted acaba de hacer click aquí");
+        alert ("la coordenada en el eje x es: " + x + " y la coordenada en el eje y es: " + y);
     }
 
-    pantalla.onclick = exhibirAlerta;
+    function dibujarCirculo(evento) {
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+            pincel.fillStyle = "blue";
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2*3.14);
+            pincel.fill();
+            console.log("la coordenada en el eje x es: " + x + " y la coordenada en el eje y es: " + y);
+            
+        }
+    pantalla.onclick = dibujarCirculo;
+    //pantalla.onclick = exhibirAlerta;
 
 </script>
